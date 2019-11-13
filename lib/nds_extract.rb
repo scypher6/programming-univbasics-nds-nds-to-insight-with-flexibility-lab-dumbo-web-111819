@@ -48,7 +48,20 @@ def movies_with_director_key(name, movies_collection)
   # Array of Hashes where each Hash represents a movie; however, they should all have a
   # :director_name key. This addition can be done by using the provided
   # movie_with_director_name method
-end
+
+  new_list = []
+  movies = []
+  movies_collection.size.times do |i| 
+    #movies_per_dir = movies_collection[i][:movies][i]
+    movies.push(movie_with_director_name(name, movies_collection[i])[:title])
+
+    #new_list.push({:director_name => name, :title => movie_hash[:title]})
+   new_list = movies.flatten
+  end
+  
+  new_list
+  
+  end
 
 
 def gross_per_studio(collection)
