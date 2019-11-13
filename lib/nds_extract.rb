@@ -49,17 +49,13 @@ def movies_with_director_key(name, movies_collection)
   # :director_name key. This addition can be done by using the provided
   # movie_with_director_name method
 
-  new_list = []
-  movies = []
-  movies_collection.size.times do |i| 
-    #movies_per_dir = movies_collection[i][:movies][i]
-    movies.push(movie_with_director_name(name, movies_collection[i])[:title])
+  result = []
 
-    #new_list.push({:director_name => name, :title => movie_hash[:title]})
-   new_list = movies.flatten
+  movies_collection.each do |movie_data|
+    result << movie_with_director_name(name, movie_data)
   end
-  
-  new_list
+
+  result
   
   end
 
